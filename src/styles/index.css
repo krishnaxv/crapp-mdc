@@ -19,7 +19,6 @@ body {
   }
 }
 
-/* A simple menu button. */
 .demo-menu {
   background: none;
   border: none;
@@ -50,8 +49,15 @@ dialog[open] {
 
 dialog + .backdrop {
   position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  background: rgba(0,0,0,0.1);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .1);
+}
+
+dialog.hide + .backdrop {
+  background: transparent;
 }
 
 /* For small devices, modal dialogs go full-screen */
@@ -75,4 +81,37 @@ dialog.fixed {
   position: fixed;
   top: 50%;
   transform: translate(0, -50%);
+}
+
+dialog::backdrop {
+  -webkit-animation: none;
+}
+
+dialog[open]::backdrop {
+  -webkit-animation: showBackdrop .7s ease;
+}
+
+dialog.close::backdrop {
+  background: transparent;
+}
+
+dialog.hide::backdrop {
+  -webkit-animation: hideBackdrop .7s ease;
+}
+
+@keyframes showBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hideBackdrop {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
