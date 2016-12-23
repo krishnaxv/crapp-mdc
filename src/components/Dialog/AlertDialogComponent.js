@@ -54,6 +54,9 @@ class AlertDialog extends Component {
   onRestDialog() {
     if (!this.state.register) {
       Dialog.onCloseDialog(this.dialog);
+      this.setState({
+        dirty: false
+      });
     }
   }
   render() {
@@ -66,7 +69,7 @@ class AlertDialog extends Component {
           const style = Effect[this.props.effect](value);
           return (
             <dialog style={style} className="mdc-elevation-transition mdc-elevation--z8" ref={(dialog) => { this.dialog = dialog; }}>
-              <button onClick={() => this.onCloseDialog()}>{this.props.children}</button>
+              <div onClick={() => this.onCloseDialog()}>{this.props.children}</div>
             </dialog>
           );
         }}
