@@ -1,13 +1,10 @@
-import dialogPolyfill from 'dialog-polyfill';
-
 class Dialog {
   static onShowDialog(dialog) {
-    dialogPolyfill.registerDialog(dialog);
-    dialog.showModal();
+    dialog.classList.add('open');
   }
 
   static onCloseDialog(dialog) {
-    dialog.close();
+    // dialog.close();
   }
 }
 

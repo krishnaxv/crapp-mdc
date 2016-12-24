@@ -33,7 +33,7 @@ class AlertDialog extends Component {
   componentDidUpdate() {
     if (this.state.register) {
       this.dialog.classList.remove('hide', 'close');
-      Dialog.onShowDialog(this.dialogWrapper);
+      Dialog.onShowDialog(this.dialog);
     }
   }
   onShowDialog() {
@@ -44,8 +44,8 @@ class AlertDialog extends Component {
     });
   }
   onCloseDialog() {
-    this.dialogWrapper.classList.add('hide');
-    setTimeout(() => this.dialogWrapper.classList.add('close'), 500);
+    this.dialog.classList.add('hide');
+    setTimeout(() => this.dialog.classList.add('close'), 500);
     this.setState({
       motion: this.state.dialog.end,
       register: false
@@ -59,10 +59,6 @@ class AlertDialog extends Component {
       });
     }
   }
-  onCloseDialogNotify() {
-    this.onCloseDialog();
-    this.props.returnCallback();
-  }
   render() {
     if (!this.state.dirty) {
       return null;
@@ -72,16 +68,9 @@ class AlertDialog extends Component {
         {(value) => {
           const style = Effect[this.props.effect](value);
           return (
-            <div className="dialogWrapper" ref={(dialogWrapper) => { this.dialogWrapper = dialogWrapper; }}>
-              <section style={style} className="mdc-elevation-transition mdc-elevation--z24 dialog alertDialog" ref={(dialog) => { this.dialog = dialog; }}>
-                <h3 className="alertDialogTitle">{this.props.title}</h3>
-                <section className="alertDialogContent">{this.props.content}</section>
-                <section className="mdc-card__actions alertDialogActions">
-                  <button className="mdc-button mdc-button--compact mdc-card__action" onClick={() => this.onCloseDialogNotify()}>Do it!</button>
-                  <button className="mdc-button mdc-button--compact mdc-card__action" onClick={() => this.onCloseDialog()}>Cancel</button>
-                </section>
-              </section>
-            </div>
+            <dialog style={style} className="mdc-elevation-transition mdc-elevation--z8" ref={(dialog) => { this.dialog = dialog; }}>
+              <div onClick={() => this.onCloseDialog()}>{this.props.children}</div>
+            </dialog>
           );
         }}
       </Motion>

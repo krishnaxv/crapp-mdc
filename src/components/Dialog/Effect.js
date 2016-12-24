@@ -4,58 +4,62 @@ const EffectConfig = {
   FADE_IN: {
     start: {
       from: {
-        x: 0
+        opacity: 0
       },
       to: {
-        x: spring(1, presets.noWobble)
+        opacity: spring(1, presets.noWobble)
       }
     },
     end: {
       from: {
-        x: 1
+        opacity: 1
       },
       to: {
-        x: spring(0, presets.noWobble)
+        opacity: spring(0, presets.noWobble)
       }
     }
   },
   FADE_IN_SCALE: {
     start: {
       from: {
-        x: 0.5
+        scale: 0.5,
+        opacity: 0.5
       },
       to: {
-        x: spring(1, presets.noWobble)
+        scale: spring(1, presets.noWobble),
+        opacity: spring(1, presets.noWobble)
       }
     },
     end: {
       from: {
-        x: 1
+        scale: 1,
+        opacity: 1
       },
       to: {
-        x: spring(0, presets.noWobble)
+        scale: spring(0, presets.noWobble),
+        opacity: spring(0, presets.noWobble)
       }
     }
   },
   FALL: {
     start: {
       from: {
-        x: 1.5,
-        y: 0
+        scale: 1.5,
+        opacity: 0
       },
       to: {
-        x: spring(1, presets.noWobble),
-        y: spring(1, presets.noWobble)
+        scale: spring(1, presets.noWobble),
+        opacity: spring(1, presets.noWobble)
       }
     },
     end: {
       from: {
-        x: 1,
-        y: 1
+        scale: 1,
+        opacity: 1
       },
       to: {
-        x: spring(1.5, presets.noWobble),
-        y: spring(0, presets.noWobble)
+        scale: spring(1.5, presets.noWobble),
+        opacity: spring(0, presets.noWobble)
       }
     }
   },
@@ -63,15 +67,15 @@ const EffectConfig = {
     start: {
       from: {
         translate: 60,
-        translateZ: 600,
+        translateZ: 300,
         rotate: 45,
         opacity: 0
       },
       to: {
-        translate: spring(0, presets.noWobble),
-        translateZ: spring(0, presets.noWobble),
-        rotate: spring(0, presets.noWobble),
-        opacity: spring(1, presets.noWobble)
+        translate: spring(0, presets.wobbly),
+        translateZ: spring(0, presets.wobbly),
+        rotate: spring(0, presets.wobbly),
+        opacity: spring(1, presets.wobbly)
       }
     },
     end: {
@@ -83,7 +87,7 @@ const EffectConfig = {
       },
       to: {
         translate: spring(60, presets.noWobble),
-        translateZ: spring(600, presets.noWobble),
+        translateZ: spring(300, presets.noWobble),
         rotate: spring(45, presets.noWobble),
         opacity: spring(0, presets.noWobble)
       }
@@ -92,110 +96,110 @@ const EffectConfig = {
   SLIDE_IN_TOP: {
     start: {
       from: {
-        x: -40,
-        y: 0
+        translateY: -40,
+        opacity: 0
       },
       to: {
-        x: spring(0, presets.wobbly),
-        y: spring(1, presets.wobbly)
+        translateY: spring(0, presets.wobbly),
+        opacity: spring(1, presets.wobbly)
       }
     },
     end: {
       from: {
-        x: 0,
-        y: 1
+        translateY: 0,
+        opacity: 1
       },
       to: {
-        x: spring(-40, presets.noWobble),
-        y: spring(0, presets.noWobble)
+        translateY: spring(-40, presets.noWobble),
+        opacity: spring(0, presets.noWobble)
       }
     }
   },
   SLIDE_IN_RIGHT: {
     start: {
       from: {
-        x: 40,
-        y: 0
+        translateX: 40,
+        opacity: 0
       },
       to: {
-        x: spring(0, presets.wobbly),
-        y: spring(1, presets.wobbly)
+        translateX: spring(0, presets.wobbly),
+        opacity: spring(1, presets.wobbly)
       }
     },
     end: {
       from: {
-        x: 0,
-        y: 1
+        translateX: 0,
+        opacity: 1
       },
       to: {
-        x: spring(40, presets.noWobble),
-        y: spring(0, presets.noWobble)
+        translateX: spring(40, presets.noWobble),
+        opacity: spring(0, presets.noWobble)
       }
     }
   },
   SLIDE_IN_BOTTOM: {
     start: {
       from: {
-        x: 40,
-        y: 0
+        translateY: 40,
+        opacity: 0
       },
       to: {
-        x: spring(0, presets.wobbly),
-        y: spring(1, presets.wobbly)
+        translateY: spring(0, presets.wobbly),
+        opacity: spring(1, presets.wobbly)
       }
     },
     end: {
       from: {
-        x: 0,
-        y: 1
+        translateY: 0,
+        opacity: 1
       },
       to: {
-        x: spring(40, presets.noWobble),
-        y: spring(0, presets.noWobble)
+        translateY: spring(40, presets.noWobble),
+        opacity: spring(0, presets.noWobble)
       }
     }
   },
   SLIDE_IN_LEFT: {
     start: {
       from: {
-        x: -40,
-        y: 0
+        translateX: -40,
+        opacity: 0
       },
       to: {
-        x: spring(0, presets.wobbly),
-        y: spring(1, presets.wobbly)
+        translateX: spring(0, presets.wobbly),
+        opacity: spring(1, presets.wobbly)
       }
     },
     end: {
       from: {
-        x: 0,
-        y: 1
+        translateX: 0,
+        opacity: 1
       },
       to: {
-        x: spring(-40, presets.noWobble),
-        y: spring(0, presets.noWobble)
+        translateX: spring(-40, presets.noWobble),
+        opacity: spring(0, presets.noWobble)
       }
     }
   },
   ROTATE_IN: {
     start: {
       from: {
-        x: 180,
-        y: 0
+        rotate: 180,
+        opacity: 0
       },
       to: {
-        x: spring(0, presets.wobbly),
-        y: spring(1, presets.wobbly)
+        rotate: spring(0, presets.wobbly),
+        opacity: spring(1, presets.wobbly)
       }
     },
     end: {
       from: {
-        x: 0,
-        y: 1
+        rotate: 0,
+        opacity: 1
       },
       to: {
-        x: spring(180, presets.noWobble),
-        y: spring(0, presets.noWobble)
+        rotate: spring(180, presets.noWobble),
+        opacity: spring(0, presets.noWobble)
       }
     }
   }
@@ -203,26 +207,27 @@ const EffectConfig = {
 
 const fadeIn = value => (
   {
-    opacity: value.x
+    opacity: value.opacity
   }
 );
 
 const fadeInScale = value => (
   {
-    transform: `scale(${value.x})`,
-    opacity: value.x
+    transform: `scale(${value.scale})`,
+    opacity: value.opacity
   }
 );
 
 const fall = value => (
   {
-    transform: `scale(${value.x})`,
-    opacity: value.y
+    transform: `scale(${value.scale})`,
+    opacity: value.opacity
   }
 );
 
 const sideFall = value => (
   {
+    transformStyle: 'preserve-3d',
     transform: `translate(${value.translate}%) translateZ(${value.translateZ}px) rotate(${value.rotate}deg)`,
     opacity: value.opacity
   }
@@ -230,36 +235,36 @@ const sideFall = value => (
 
 const slideInTop = value => (
   {
-    transform: `translateY(${value.x}px)`,
-    opacity: value.y
+    transform: `translateY(${value.translateY}px)`,
+    opacity: value.opacity
   }
 );
 
 const slideInRight = value => (
   {
-    transform: `translateX(${value.x}px)`,
-    opacity: value.y
+    transform: `translateX(${value.translateX}px)`,
+    opacity: value.opacity
   }
 );
 
 const slideInBottom = value => (
   {
-    transform: `translateY(${value.x}px)`,
-    opacity: value.y
+    transform: `translateY(${value.translateY}px)`,
+    opacity: value.opacity
   }
 );
 
 const slideInLeft = value => (
   {
-    transform: `translateX(${value.x}px)`,
-    opacity: value.y
+    transform: `translateX(${value.translateX}px)`,
+    opacity: value.opacity
   }
 );
 
 const rotateIn = value => (
   {
-    transform: `rotate(${value.x}deg)`,
-    opacity: value.y
+    transform: `rotate(${value.rotate}deg)`,
+    opacity: value.opacity
   }
 );
 

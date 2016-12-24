@@ -8,7 +8,9 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      register: false
+      register: false,
+      title: 'Just do it!',
+      content: 'I said, "Just do it!". Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo ut quaerat itaque minus ab quas ipsum iure consequatur voluptatibus architecto assumenda dolores, eveniet error deleniti iusto iste repudiandae. Beatae, iste?'
     };
   }
   // componentDidMount() {
@@ -22,14 +24,14 @@ class Main extends Component {
       register: true
     });
   }
+  onReturnDialog() {
+    console.log('onReturnDialog');
+  }
   render() {
     return (
       <div>
         <button onClick={() => this.onShowDialog()}>Show Dialog</button>
-        <AlertDialog register={this.state.register} effect="SIDE_FALL">
-          <h1>Hello AlertDialog</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </AlertDialog>
+        <AlertDialog register={this.state.register} effect="ROTATE_IN" title={this.state.title} content={this.state.content} returnCallback={() => this.onReturnDialog()} />
       </div>
     );
   }
